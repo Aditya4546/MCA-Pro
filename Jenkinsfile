@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/Aditya4546/MCA-Pro.git'
+                 git branch: 'main',
+            url: 'https://github.com/Aditya4546/MCA-Pro.git'
             }
         }
 
