@@ -2,22 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone Repository') {
-            steps {
-                 git branch: 'main',
-            url: 'https://github.com/Aditya4546/MCA-Pro.git'
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
-                sh 'pip3 install -r requirements.txt'
+                sh '''
+                python3 --version
+                python3 -m pip install --upgrade pip
+                python3 -m pip install -r requirements.txt
+                '''
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'pytest'
+                sh 'python3 -m pytest'
             }
         }
     }
